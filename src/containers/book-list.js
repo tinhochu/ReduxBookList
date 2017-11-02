@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class BookList extends Component {
 
@@ -19,4 +20,13 @@ class BookList extends Component {
 	}
 }
 
-export default BookList;
+function mapStateToProps(state) {
+	// Whatever is returned will show up as props
+	// inside of BookList
+	return {
+		books: state.books
+	};
+}
+
+// this line produces a Container
+export default connect(mapStateToProps)(BookList);
